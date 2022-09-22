@@ -1,0 +1,3135 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SLIM for fast top-k Recommendation · Hivemall User Manual</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-etoc/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-callouts/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-codeblock-filename/block.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-multipart/multipart.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-emphasize/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-api/theme-api.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="movielens_cv.html" />
+    
+    
+    <link rel="prev" href="movielens_fm.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://hivemall.incubator.apache.org/" target="_blank" class="custom-link"><i class="fa fa-home"></i> Home</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        <li class="header">TABLE OF CONTENTS</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../getting_started/">
+            
+                <a href="../getting_started/">
+            
+                    
+                        <b>1.2.</b>
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../getting_started/installation.html">
+            
+                <a href="../getting_started/installation.html">
+            
+                    
+                        <b>1.2.1.</b>
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../getting_started/permanent-functions.html">
+            
+                <a href="../getting_started/permanent-functions.html">
+            
+                    
+                        <b>1.2.2.</b>
+                    
+                    Install as permanent functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../getting_started/input-format.html">
+            
+                <a href="../getting_started/input-format.html">
+            
+                    
+                        <b>1.2.3.</b>
+                    
+                    Input Format
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../misc/funcs.html">
+            
+                <a href="../misc/funcs.html">
+            
+                    
+                        <b>1.3.</b>
+                    
+                    List of Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../tips/">
+            
+                <a href="../tips/">
+            
+                    
+                        <b>1.4.</b>
+                    
+                    Tips for Effective Hivemall
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../tips/addbias.html">
+            
+                <a href="../tips/addbias.html">
+            
+                    
+                        <b>1.4.1.</b>
+                    
+                    Explicit add_bias() for better prediction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../tips/rand_amplify.html">
+            
+                <a href="../tips/rand_amplify.html">
+            
+                    
+                        <b>1.4.2.</b>
+                    
+                    Use rand_amplify() to better prediction results
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../tips/rt_prediction.html">
+            
+                <a href="../tips/rt_prediction.html">
+            
+                    
+                        <b>1.4.3.</b>
+                    
+                    Real-time prediction on RDBMS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../tips/ensemble_learning.html">
+            
+                <a href="../tips/ensemble_learning.html">
+            
+                    
+                        <b>1.4.4.</b>
+                    
+                    Ensemble learning for stable prediction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../tips/mixserver.html">
+            
+                <a href="../tips/mixserver.html">
+            
+                    
+                        <b>1.4.5.</b>
+                    
+                    Mixing models for a better prediction convergence (MIX server)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../tips/emr.html">
+            
+                <a href="../tips/emr.html">
+            
+                    
+                        <b>1.4.6.</b>
+                    
+                    Run Hivemall on Amazon Elastic MapReduce
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../tips/general_tips.html">
+            
+                <a href="../tips/general_tips.html">
+            
+                    
+                        <b>1.5.</b>
+                    
+                    General Hive/Hadoop Tips
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../tips/rowid.html">
+            
+                <a href="../tips/rowid.html">
+            
+                    
+                        <b>1.5.1.</b>
+                    
+                    Adding rowid for each row
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../tips/hadoop_tuning.html">
+            
+                <a href="../tips/hadoop_tuning.html">
+            
+                    
+                        <b>1.5.2.</b>
+                    
+                    Hadoop tuning for Hivemall
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../troubleshooting/">
+            
+                <a href="../troubleshooting/">
+            
+                    
+                        <b>1.6.</b>
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../troubleshooting/oom.html">
+            
+                <a href="../troubleshooting/oom.html">
+            
+                    
+                        <b>1.6.1.</b>
+                    
+                    OutOfMemoryError in training
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../troubleshooting/mapjoin_task_error.html">
+            
+                <a href="../troubleshooting/mapjoin_task_error.html">
+            
+                    
+                        <b>1.6.2.</b>
+                    
+                    SemanticException generate map join task error: Cannot serialize object
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../troubleshooting/asterisk.html">
+            
+                <a href="../troubleshooting/asterisk.html">
+            
+                    
+                        <b>1.6.3.</b>
+                    
+                    Asterisk argument for UDTF does not work
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../troubleshooting/num_mappers.html">
+            
+                <a href="../troubleshooting/num_mappers.html">
+            
+                    
+                        <b>1.6.4.</b>
+                    
+                    The number of mappers is less than input splits in Hadoop 2.x
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../troubleshooting/mapjoin_classcastex.html">
+            
+                <a href="../troubleshooting/mapjoin_classcastex.html">
+            
+                    
+                        <b>1.6.5.</b>
+                    
+                    Map-side join causes ClassCastException on Tez
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part II - Generic Features</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../misc/generic_funcs.html">
+            
+                <a href="../misc/generic_funcs.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    List of Generic Hivemall Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../misc/topk.html">
+            
+                <a href="../misc/topk.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Efficient Top-K Query Processing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../misc/tokenizer.html">
+            
+                <a href="../misc/tokenizer.html">
+            
+                    
+                        <b>2.3.</b>
+                    
+                    Text Tokenizer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../misc/approx.html">
+            
+                <a href="../misc/approx.html">
+            
+                    
+                        <b>2.4.</b>
+                    
+                    Approximate Aggregate Functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part III - Feature Engineering</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../ft_engineering/scaling.html">
+            
+                <a href="../ft_engineering/scaling.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    Feature Scaling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../ft_engineering/hashing.html">
+            
+                <a href="../ft_engineering/hashing.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    Feature Hashing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../ft_engineering/selection.html">
+            
+                <a href="../ft_engineering/selection.html">
+            
+                    
+                        <b>3.3.</b>
+                    
+                    Feature Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.4" data-path="../ft_engineering/binning.html">
+            
+                <a href="../ft_engineering/binning.html">
+            
+                    
+                        <b>3.4.</b>
+                    
+                    Feature Binning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.5" data-path="../ft_engineering/pairing.html">
+            
+                <a href="../ft_engineering/pairing.html">
+            
+                    
+                        <b>3.5.</b>
+                    
+                    Feature Paring
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.5.1" data-path="../ft_engineering/polynomial.html">
+            
+                <a href="../ft_engineering/polynomial.html">
+            
+                    
+                        <b>3.5.1.</b>
+                    
+                    Polynomial features
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6" data-path="../ft_engineering/ft_trans.html">
+            
+                <a href="../ft_engineering/ft_trans.html">
+            
+                    
+                        <b>3.6.</b>
+                    
+                    Feature Transformation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.6.1" data-path="../ft_engineering/vectorization.html">
+            
+                <a href="../ft_engineering/vectorization.html">
+            
+                    
+                        <b>3.6.1.</b>
+                    
+                    Feature vectorization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.2" data-path="../ft_engineering/quantify.html">
+            
+                <a href="../ft_engineering/quantify.html">
+            
+                    
+                        <b>3.6.2.</b>
+                    
+                    Quantify non-number features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.3" data-path="../ft_engineering/binarize.html">
+            
+                <a href="../ft_engineering/binarize.html">
+            
+                    
+                        <b>3.6.3.</b>
+                    
+                    Binarize label
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.6.4" data-path="../ft_engineering/onehot.html">
+            
+                <a href="../ft_engineering/onehot.html">
+            
+                    
+                        <b>3.6.4.</b>
+                    
+                    One-hot encoding
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7" data-path="../ft_engineering/term_vector.html">
+            
+                <a href="../ft_engineering/term_vector.html">
+            
+                    
+                        <b>3.7.</b>
+                    
+                    Term Vector Model
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.7.1" data-path="../ft_engineering/tfidf.html">
+            
+                <a href="../ft_engineering/tfidf.html">
+            
+                    
+                        <b>3.7.1.</b>
+                    
+                    TF-IDF Term Weighting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.7.2" data-path="../ft_engineering/bm25.html">
+            
+                <a href="../ft_engineering/bm25.html">
+            
+                    
+                        <b>3.7.2.</b>
+                    
+                    Okapi BM25 Term Weighting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part IV - Evaluation</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../eval/binary_classification_measures.html">
+            
+                <a href="../eval/binary_classification_measures.html">
+            
+                    
+                        <b>4.1.</b>
+                    
+                    Binary Classification Metrics
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../eval/auc.html">
+            
+                <a href="../eval/auc.html">
+            
+                    
+                        <b>4.1.1.</b>
+                    
+                    Area under the ROC curve
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../eval/multilabel_classification_measures.html">
+            
+                <a href="../eval/multilabel_classification_measures.html">
+            
+                    
+                        <b>4.2.</b>
+                    
+                    Multi-label Classification Metrics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../eval/regression.html">
+            
+                <a href="../eval/regression.html">
+            
+                    
+                        <b>4.3.</b>
+                    
+                    Regression Metrics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../eval/rank.html">
+            
+                <a href="../eval/rank.html">
+            
+                    
+                        <b>4.4.</b>
+                    
+                    Ranking Measures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.5" data-path="../eval/datagen.html">
+            
+                <a href="../eval/datagen.html">
+            
+                    
+                        <b>4.5.</b>
+                    
+                    Data Generation
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.5.1" data-path="../eval/lr_datagen.html">
+            
+                <a href="../eval/lr_datagen.html">
+            
+                    
+                        <b>4.5.1.</b>
+                    
+                    Logistic Regression data generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part V - Supervised Learning</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../supervised_learning/prediction.html">
+            
+                <a href="../supervised_learning/prediction.html">
+            
+                    
+                        <b>5.1.</b>
+                    
+                    How Prediction Works
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../supervised_learning/tutorial.html">
+            
+                <a href="../supervised_learning/tutorial.html">
+            
+                    
+                        <b>5.2.</b>
+                    
+                    Step-by-Step Tutorial on Supervised Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part VI - Binary Classification</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../binaryclass/general.html">
+            
+                <a href="../binaryclass/general.html">
+            
+                    
+                        <b>6.1.</b>
+                    
+                    Binary Classification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../binaryclass/a9a.html">
+            
+                <a href="../binaryclass/a9a.html">
+            
+                    
+                        <b>6.2.</b>
+                    
+                    a9a Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.2.1" data-path="../binaryclass/a9a_dataset.html">
+            
+                <a href="../binaryclass/a9a_dataset.html">
+            
+                    
+                        <b>6.2.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.2" data-path="../binaryclass/a9a_generic.html">
+            
+                <a href="../binaryclass/a9a_generic.html">
+            
+                    
+                        <b>6.2.2.</b>
+                    
+                    General Binary Classifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.3" data-path="../binaryclass/a9a_lr.html">
+            
+                <a href="../binaryclass/a9a_lr.html">
+            
+                    
+                        <b>6.2.3.</b>
+                    
+                    Logistic Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2.4" data-path="../binaryclass/a9a_minibatch.html">
+            
+                <a href="../binaryclass/a9a_minibatch.html">
+            
+                    
+                        <b>6.2.4.</b>
+                    
+                    Mini-batch Gradient Descent
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../binaryclass/news20.html">
+            
+                <a href="../binaryclass/news20.html">
+            
+                    
+                        <b>6.3.</b>
+                    
+                    News20 Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.3.1" data-path="../binaryclass/news20_dataset.html">
+            
+                <a href="../binaryclass/news20_dataset.html">
+            
+                    
+                        <b>6.3.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.2" data-path="../binaryclass/news20_pa.html">
+            
+                <a href="../binaryclass/news20_pa.html">
+            
+                    
+                        <b>6.3.2.</b>
+                    
+                    Perceptron, Passive Aggressive
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.3" data-path="../binaryclass/news20_scw.html">
+            
+                <a href="../binaryclass/news20_scw.html">
+            
+                    
+                        <b>6.3.3.</b>
+                    
+                    CW, AROW, SCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.4" data-path="../binaryclass/news20_generic.html">
+            
+                <a href="../binaryclass/news20_generic.html">
+            
+                    
+                        <b>6.3.4.</b>
+                    
+                    General Binary Classifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.5" data-path="../binaryclass/news20_generic_bagging.html">
+            
+                <a href="../binaryclass/news20_generic_bagging.html">
+            
+                    
+                        <b>6.3.5.</b>
+                    
+                    Baggnig classiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.6" data-path="../binaryclass/news20_adagrad.html">
+            
+                <a href="../binaryclass/news20_adagrad.html">
+            
+                    
+                        <b>6.3.6.</b>
+                    
+                    AdaGradRDA, AdaGrad, AdaDelta
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.7" data-path="../binaryclass/news20_rf.html">
+            
+                <a href="../binaryclass/news20_rf.html">
+            
+                    
+                        <b>6.3.7.</b>
+                    
+                    Random Forest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3.8" data-path="../binaryclass/news20b_xgboost.html">
+            
+                <a href="../binaryclass/news20b_xgboost.html">
+            
+                    
+                        <b>6.3.8.</b>
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4" data-path="../binaryclass/kdd2010a.html">
+            
+                <a href="../binaryclass/kdd2010a.html">
+            
+                    
+                        <b>6.4.</b>
+                    
+                    KDD2010a Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.4.1" data-path="../binaryclass/kdd2010a_dataset.html">
+            
+                <a href="../binaryclass/kdd2010a_dataset.html">
+            
+                    
+                        <b>6.4.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.4.2" data-path="../binaryclass/kdd2010a_scw.html">
+            
+                <a href="../binaryclass/kdd2010a_scw.html">
+            
+                    
+                        <b>6.4.2.</b>
+                    
+                    PA, CW, AROW, SCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5" data-path="../binaryclass/kdd2010b.html">
+            
+                <a href="../binaryclass/kdd2010b.html">
+            
+                    
+                        <b>6.5.</b>
+                    
+                    KDD2010b Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.5.1" data-path="../binaryclass/kdd2010b_dataset.html">
+            
+                <a href="../binaryclass/kdd2010b_dataset.html">
+            
+                    
+                        <b>6.5.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.5.2" data-path="../binaryclass/kdd2010b_arow.html">
+            
+                <a href="../binaryclass/kdd2010b_arow.html">
+            
+                    
+                        <b>6.5.2.</b>
+                    
+                    AROW
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6" data-path="../binaryclass/webspam.html">
+            
+                <a href="../binaryclass/webspam.html">
+            
+                    
+                        <b>6.6.</b>
+                    
+                    Webspam Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.6.1" data-path="../binaryclass/webspam_dataset.html">
+            
+                <a href="../binaryclass/webspam_dataset.html">
+            
+                    
+                        <b>6.6.1.</b>
+                    
+                    Data Pareparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.6.2" data-path="../binaryclass/webspam_scw.html">
+            
+                <a href="../binaryclass/webspam_scw.html">
+            
+                    
+                        <b>6.6.2.</b>
+                    
+                    PA1, AROW, SCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="6.7" data-path="../binaryclass/titanic_rf.html">
+            
+                <a href="../binaryclass/titanic_rf.html">
+            
+                    
+                        <b>6.7.</b>
+                    
+                    Kaggle Titanic Tutorial
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8" data-path="../binaryclass/criteo.html">
+            
+                <a href="../binaryclass/criteo.html">
+            
+                    
+                        <b>6.8.</b>
+                    
+                    Criteo Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.8.1" data-path="../binaryclass/criteo_dataset.html">
+            
+                <a href="../binaryclass/criteo_dataset.html">
+            
+                    
+                        <b>6.8.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.8.2" data-path="../binaryclass/criteo_ffm.html">
+            
+                <a href="../binaryclass/criteo_ffm.html">
+            
+                    
+                        <b>6.8.2.</b>
+                    
+                    Field-Aware Factorization Machines
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part VII - Multiclass Classification</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../multiclass/news20.html">
+            
+                <a href="../multiclass/news20.html">
+            
+                    
+                        <b>7.1.</b>
+                    
+                    News20 Multiclass Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../multiclass/news20_dataset.html">
+            
+                <a href="../multiclass/news20_dataset.html">
+            
+                    
+                        <b>7.1.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../multiclass/news20_one-vs-the-rest_dataset.html">
+            
+                <a href="../multiclass/news20_one-vs-the-rest_dataset.html">
+            
+                    
+                        <b>7.1.2.</b>
+                    
+                    Data Preparation for one-vs-the-rest classifiers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.3" data-path="../multiclass/news20_pa.html">
+            
+                <a href="../multiclass/news20_pa.html">
+            
+                    
+                        <b>7.1.3.</b>
+                    
+                    PA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.4" data-path="../multiclass/news20_scw.html">
+            
+                <a href="../multiclass/news20_scw.html">
+            
+                    
+                        <b>7.1.4.</b>
+                    
+                    CW, AROW, SCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.5" data-path="../multiclass/news20_xgboost.html">
+            
+                <a href="../multiclass/news20_xgboost.html">
+            
+                    
+                        <b>7.1.5.</b>
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.6" data-path="../multiclass/news20_ensemble.html">
+            
+                <a href="../multiclass/news20_ensemble.html">
+            
+                    
+                        <b>7.1.6.</b>
+                    
+                    Ensemble learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.7" data-path="../multiclass/news20_one-vs-the-rest.html">
+            
+                <a href="../multiclass/news20_one-vs-the-rest.html">
+            
+                    
+                        <b>7.1.7.</b>
+                    
+                    one-vs-the-rest Classifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../multiclass/iris.html">
+            
+                <a href="../multiclass/iris.html">
+            
+                    
+                        <b>7.2.</b>
+                    
+                    Iris Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.2.1" data-path="../multiclass/iris_dataset.html">
+            
+                <a href="../multiclass/iris_dataset.html">
+            
+                    
+                        <b>7.2.1.</b>
+                    
+                    Data preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2.2" data-path="../multiclass/iris_scw.html">
+            
+                <a href="../multiclass/iris_scw.html">
+            
+                    
+                        <b>7.2.2.</b>
+                    
+                    SCW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2.3" data-path="../multiclass/iris_randomforest.html">
+            
+                <a href="../multiclass/iris_randomforest.html">
+            
+                    
+                        <b>7.2.3.</b>
+                    
+                    Random Forest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2.4" data-path="../multiclass/iris_xgboost.html">
+            
+                <a href="../multiclass/iris_xgboost.html">
+            
+                    
+                        <b>7.2.4.</b>
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part VIII - Regression</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../regression/general.html">
+            
+                <a href="../regression/general.html">
+            
+                    
+                        <b>8.1.</b>
+                    
+                    Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../regression/e2006.html">
+            
+                <a href="../regression/e2006.html">
+            
+                    
+                        <b>8.2.</b>
+                    
+                    E2006-tfidf Regression Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.2.1" data-path="../regression/e2006_dataset.html">
+            
+                <a href="../regression/e2006_dataset.html">
+            
+                    
+                        <b>8.2.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.2" data-path="../regression/e2006_generic.html">
+            
+                <a href="../regression/e2006_generic.html">
+            
+                    
+                        <b>8.2.2.</b>
+                    
+                    General Regessor
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.3" data-path="../regression/e2006_arow.html">
+            
+                <a href="../regression/e2006_arow.html">
+            
+                    
+                        <b>8.2.3.</b>
+                    
+                    Passive Aggressive, AROW
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2.4" data-path="../regression/e2006_xgboost.html">
+            
+                <a href="../regression/e2006_xgboost.html">
+            
+                    
+                        <b>8.2.4.</b>
+                    
+                    XGBoost
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3" data-path="../regression/kddcup12tr2.html">
+            
+                <a href="../regression/kddcup12tr2.html">
+            
+                    
+                        <b>8.3.</b>
+                    
+                    KDDCup 2012 Track 2 CTR Prediction Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.3.1" data-path="../regression/kddcup12tr2_dataset.html">
+            
+                <a href="../regression/kddcup12tr2_dataset.html">
+            
+                    
+                        <b>8.3.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.2" data-path="../regression/kddcup12tr2_lr.html">
+            
+                <a href="../regression/kddcup12tr2_lr.html">
+            
+                    
+                        <b>8.3.2.</b>
+                    
+                    Logistic Regression, Passive Aggressive
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.3" data-path="../regression/kddcup12tr2_lr_amplify.html">
+            
+                <a href="../regression/kddcup12tr2_lr_amplify.html">
+            
+                    
+                        <b>8.3.3.</b>
+                    
+                    Logistic Regression with amplifier
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.3.4" data-path="../regression/kddcup12tr2_adagrad.html">
+            
+                <a href="../regression/kddcup12tr2_adagrad.html">
+            
+                    
+                        <b>8.3.4.</b>
+                    
+                    AdaGrad, AdaDelta
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part IX - Recommendation</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="cf.html">
+            
+                <a href="cf.html">
+            
+                    
+                        <b>9.1.</b>
+                    
+                    Collaborative Filtering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="item_based_cf.html">
+            
+                <a href="item_based_cf.html">
+            
+                    
+                        <b>9.1.1.</b>
+                    
+                    Item-based Collaborative Filtering
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="news20.html">
+            
+                <a href="news20.html">
+            
+                    
+                        <b>9.2.</b>
+                    
+                    News20 Related Article Recommendation Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.2.1" data-path="../multiclass/news20_dataset.html">
+            
+                <a href="../multiclass/news20_dataset.html">
+            
+                    
+                        <b>9.2.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2.2" data-path="news20_jaccard.html">
+            
+                <a href="news20_jaccard.html">
+            
+                    
+                        <b>9.2.2.</b>
+                    
+                    LSH/MinHash and Jaccard Similarity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2.3" data-path="news20_knn.html">
+            
+                <a href="news20_knn.html">
+            
+                    
+                        <b>9.2.3.</b>
+                    
+                    LSH/MinHash and Brute-force Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2.4" data-path="news20_bbit_minhash.html">
+            
+                <a href="news20_bbit_minhash.html">
+            
+                    
+                        <b>9.2.4.</b>
+                    
+                    kNN search using b-Bits MinHash
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3" data-path="movielens.html">
+            
+                <a href="movielens.html">
+            
+                    
+                        <b>9.3.</b>
+                    
+                    MovieLens Movie Recommendation Tutorial
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.3.1" data-path="movielens_dataset.html">
+            
+                <a href="movielens_dataset.html">
+            
+                    
+                        <b>9.3.1.</b>
+                    
+                    Data Preparation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3.2" data-path="movielens_cf.html">
+            
+                <a href="movielens_cf.html">
+            
+                    
+                        <b>9.3.2.</b>
+                    
+                    Item-based Collaborative Filtering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3.3" data-path="movielens_mf.html">
+            
+                <a href="movielens_mf.html">
+            
+                    
+                        <b>9.3.3.</b>
+                    
+                    Matrix Factorization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3.4" data-path="movielens_fm.html">
+            
+                <a href="movielens_fm.html">
+            
+                    
+                        <b>9.3.4.</b>
+                    
+                    Factorization Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="9.3.5" data-path="movielens_slim.html">
+            
+                <a href="movielens_slim.html">
+            
+                    
+                        <b>9.3.5.</b>
+                    
+                    SLIM for fast top-k Recommendation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.3.6" data-path="movielens_cv.html">
+            
+                <a href="movielens_cv.html">
+            
+                    
+                        <b>9.3.6.</b>
+                    
+                    10-fold Cross Validation (Matrix Factorization)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part X - Anomaly Detection</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../anomaly/lof.html">
+            
+                <a href="../anomaly/lof.html">
+            
+                    
+                        <b>10.1.</b>
+                    
+                    Outlier Detection using Local Outlier Factor (LOF)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../anomaly/sst.html">
+            
+                <a href="../anomaly/sst.html">
+            
+                    
+                        <b>10.2.</b>
+                    
+                    Change-Point Detection using Singular Spectrum Transformation (SST)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.3" data-path="../anomaly/changefinder.html">
+            
+                <a href="../anomaly/changefinder.html">
+            
+                    
+                        <b>10.3.</b>
+                    
+                    ChangeFinder: Detecting Outlier and Change-Point Simultaneously
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part XI - Clustering</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../clustering/lda.html">
+            
+                <a href="../clustering/lda.html">
+            
+                    
+                        <b>11.1.</b>
+                    
+                    Latent Dirichlet Allocation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../clustering/plsa.html">
+            
+                <a href="../clustering/plsa.html">
+            
+                    
+                        <b>11.2.</b>
+                    
+                    Probabilistic Latent Semantic Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part XII - GeoSpatial Functions</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../geospatial/latlon.html">
+            
+                <a href="../geospatial/latlon.html">
+            
+                    
+                        <b>12.1.</b>
+                    
+                    Lat/Lon functions
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part XIII - Hivemall on SparkSQL</li>
+        
+        
+    
+        <li class="chapter " data-level="13.1" data-path="../spark/getting_started/README.md">
+            
+                <span>
+            
+                    
+                        <b>13.1.</b>
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.1.1" data-path="../spark/getting_started/installation.html">
+            
+                <a href="../spark/getting_started/installation.html">
+            
+                    
+                        <b>13.1.1.</b>
+                    
+                    Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="13.2" data-path="../spark/binaryclass/">
+            
+                <a href="../spark/binaryclass/">
+            
+                    
+                        <b>13.2.</b>
+                    
+                    Binary Classification
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.2.1" data-path="../spark/binaryclass/a9a_sql.html">
+            
+                <a href="../spark/binaryclass/a9a_sql.html">
+            
+                    
+                        <b>13.2.1.</b>
+                    
+                    a9a Tutorial for SQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="13.3" data-path="../spark/binaryclass/">
+            
+                <a href="../spark/binaryclass/">
+            
+                    
+                        <b>13.3.</b>
+                    
+                    Regression
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="13.3.1" data-path="../spark/regression/e2006_sql.html">
+            
+                <a href="../spark/regression/e2006_sql.html">
+            
+                    
+                        <b>13.3.1.</b>
+                    
+                    E2006-tfidf Regression Tutorial for SQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part XIV - Hivemall on Docker</li>
+        
+        
+    
+        <li class="chapter " data-level="14.1" data-path="../docker/getting_started.html">
+            
+                <a href="../docker/getting_started.html">
+            
+                    
+                        <b>14.1.</b>
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Part XIV - External References</li>
+        
+        
+    
+        <li class="chapter " data-level="15.1" >
+            
+                <a target="_blank" href="https://github.com/daijyc/hivemall/wiki/PigHome">
+            
+                    
+                        <b>15.1.</b>
+                    
+                    Hivemall on Apache Pig
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SLIM for fast top-k Recommendation</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<p>Hivemall supports a neighborhood-learning scheme using SLIM. 
+SLIM is a representative of neighborhood-learning recommendation algorithm introduced in the following paper:</p>
+<ul>
+<li>Xia Ning and George Karypis, <a href="https://dl.acm.org/citation.cfm?id=2118303" target="_blank">SLIM: Sparse Linear Methods for Top-N Recommender Systems</a>, Proc. ICDM, 2011.</li>
+</ul>
+<p><em>Caution: SLIM is supported from Hivemall v0.5-rc.1 or later.</em></p>
+<!-- toc --><div id="toc" class="toc">
+
+<ul>
+<li><a href="#slim-optimization-objective">SLIM optimization objective</a></li>
+<li><a href="#data-preparation">Data preparation</a><ul>
+<li><a href="#rating-binarization">Rating binarization</a></li>
+<li><a href="#splitting-dataset">Splitting dataset</a><ul>
+<li><a href="#leave-one-out-cross-validation">Leave-one-out cross validation</a></li>
+<li><a href="#k-hold-corss-validation"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold corss validation</a></li>
+</ul>
+</li>
+<li><a href="#pre-compute-item-item-similarity">Pre-compute item-item similarity</a></li>
+<li><a href="#create-training-input-tables">Create training input tables</a></li>
+</ul>
+</li>
+<li><a href="#training">Training</a><ul>
+<li><a href="#build-a-prediction-model-by-slim">Build a prediction model by SLIM</a></li>
+<li><a href="#usage-of-trainslim">Usage of <code>train_slim</code></a></li>
+</ul>
+</li>
+<li><a href="#prediction-and-recommendation">Prediction and recommendation</a><ul>
+<li><a href="#predict-unknown-ratings-of-a-user-item-matrix">Predict unknown ratings of a user-item matrix</a></li>
+<li><a href="#top-k-item-recommendation-for-each-user">Top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> item recommendation for each user</a></li>
+</ul>
+</li>
+<li><a href="#evaluation">Evaluation</a><ul>
+<li><a href="#top-k-ranking-measures-hit-ratek-mrrk-and-precisionk">Top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> ranking measures: Hit-Rate@K, MRR@K, and Precision@K</a><ul>
+<li><a href="#leave-one-out-result">Leave-one-out result</a></li>
+<li><a href="#k-hold-result"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold result</a></li>
+</ul>
+</li>
+<li><a href="#ranking-measures-mrr">Ranking measures: MRR</a><ul>
+<li><a href="#leave-one-out-result-1">Leave-one-out result</a></li>
+<li><a href="#k-hold-result-1"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold result</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div><!-- tocstop -->
+<h1 id="slim-optimization-objective">SLIM optimization objective</h1>
+<p>The optimization objective of <a href="http://glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf" target="_blank">SLIM</a> is similar to Elastic Net (L1+L2 regularization) with additional constraints as follows:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mtable><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mspace width="0.277778em"></mspace><mrow><mstyle mathsize="0.5em"><mtable><mtr><mtd><mrow></mrow></mtd></mtr><mtr><mtd><mrow><mstyle mathsize="1em"><mtext><mi mathvariant="normal">m</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">z</mi><mi mathvariant="normal">e</mi></mtext></mstyle></mrow></mtd></mtr><mtr><mtd><mrow><msup><mrow></mrow><mrow><mstyle mathsize="0.7em"><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub></mstyle></mrow></msup></mrow></mtd></mtr></mtable></mstyle></mrow><mspace width="0.277778em"></mspace></mrow></mtd><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mfrac><mrow><mn>1</mn></mrow><mrow><mn>2</mn></mrow></mfrac><mi mathvariant="normal">&#x2225;</mi><msub><mi>r</mi><mrow><mi>j</mi></mrow></msub><mo>&#x2212;</mo><mi>R</mi><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub><msubsup><mi mathvariant="normal">&#x2225;</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mfrac><mrow><mi>&#x3B2;</mi></mrow><mrow><mn>2</mn></mrow></mfrac><mi mathvariant="normal">&#x2225;</mi><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub><msubsup><mi mathvariant="normal">&#x2225;</mi><mn>2</mn><mn>2</mn></msubsup><mo>+</mo><mi>&#x3BB;</mi><mi mathvariant="normal">&#x2225;</mi><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub><msub><mi mathvariant="normal">&#x2225;</mi><mn>1</mn></msub></mrow></mtd></mtr><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mtext><mi mathvariant="normal">s</mi><mi mathvariant="normal">u</mi><mi mathvariant="normal">b</mi><mi mathvariant="normal">j</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">c</mi><mi mathvariant="normal">t</mi><mtext>&#xA0;</mtext><mi mathvariant="normal">t</mi><mi mathvariant="normal">o</mi></mtext></mrow></mtd><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><msub><mi>w</mi><mrow><mi>j</mi></mrow></msub><mo>&#x2265;</mo><mn>0</mn></mrow></mtd></mtr><mtr><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow></mrow></mtd><mtd><mrow></mrow></mtd><mtd><mrow><mrow></mrow><mi>d</mi><mi>i</mi><mi>a</mi><mi>g</mi><mo>(</mo><mi>W</mi><mo>)</mo><mo>=</mo><mn>0</mn></mrow></mtd></mtr></mtable></mrow><annotation encoding="application/x-tex">
+\begin{aligned}
+&amp; \;{\tiny\begin{matrix}\\ \normalsize \text{minimize} \\ ^{\scriptsize w_{j}}\end{matrix}}\; 
+&amp;&amp; \frac{1}{2}\Vert r_{j} - Rw_{j} \Vert_2^2 + \frac{\beta}{2} \Vert w_{j} \Vert_2^2 + \lambda \Vert w_{j} \Vert_1 \\
+&amp; \text{subject to} 
+&amp;&amp; w_{j} \geq 0 \\
+&amp;&amp;&amp; diag(W)= 0
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:2.5232200000000002em;"></span><span class="strut bottom" style="height:4.5464400000000005em;vertical-align:-2.02322em;"></span><span class="base displaystyle textstyle uncramped"><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist"><span style="top:-1.1517800000000002em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:0.4632199999999996em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:1.6632199999999997em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="col-align-l"><span class="vlist"><span style="top:-1.1517800000000002em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0.5em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mord displaystyle textstyle uncramped"><span class="mspace thickspace"></span><span class="mord sizing reset-size5 size1 displaystyle textstyle uncramped"><span class="mtable"><span class="col-align-c"><span class="vlist"><span style="top:-1.2099999999999997em;"><span class="fontsize-ensurer reset-size1 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:-0.00999999999999951em;"><span class="fontsize-ensurer reset-size1 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord text displaystyle textstyle uncramped sizing reset-size1 size5 displaystyle textstyle uncramped"><span class="mord mathrm">minimize</span></span></span></span><span style="top:1.1900000000000006em;"><span class="fontsize-ensurer reset-size1 size5"><span style="font-size:1em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord"><span></span><span class="msupsub"><span class="vlist"><span style="top:-0.413em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size1 size5"><span style="font-size:0.48999999999999994em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mtight sizing reset-size1 size2 scriptstyle uncramped"><span class="mord mathit mtight" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.14300000000000002em;margin-right:0.07142857142857144em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size2 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord scriptscriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size2 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size1 size5"><span style="font-size:0.48999999999999994em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size1 size5"><span style="font-size:1em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span class="mspace thickspace"></span></span></span><span style="top:0.4632199999999996em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0.5em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mord text displaystyle textstyle uncramped"><span class="mord mathrm">subject&#xA0;to</span></span></span></span><span style="top:1.6632199999999997em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0.5em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0.5em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="arraycolsep" style="width:2em;"></span><span class="col-align-r"><span class="vlist"><span style="top:-1.1517800000000002em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:0.4632199999999996em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span style="top:1.6632199999999997em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="col-align-l"><span class="vlist"><span style="top:-1.1517800000000002em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathrm">1</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathrm">&#x2225;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">&#x2212;</span><span class="mord mathit" style="margin-right:0.00773em;">R</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathrm">&#x2225;</span><span class="msupsub"><span class="vlist"><span style="top:0.247em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord reset-textstyle displaystyle textstyle uncramped"><span class="mopen sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span><span class="mfrac"><span class="vlist"><span style="top:0.686em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle cramped"><span class="mord textstyle cramped"><span class="mord mathrm">2</span></span></span></span><span style="top:-0.22999999999999998em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped frac-line"></span></span><span style="top:-0.677em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle textstyle uncramped"><span class="mord textstyle uncramped"><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose sizing reset-size5 size5 reset-textstyle textstyle uncramped nulldelimiter"></span></span><span class="mord mathrm">&#x2225;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathrm">&#x2225;</span><span class="msupsub"><span class="vlist"><span style="top:0.247em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">2</span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathrm mtight">2</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord mathit">&#x3BB;</span><span class="mord mathrm">&#x2225;</span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mord"><span class="mord mathrm">&#x2225;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">1</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span><span style="top:0.4632199999999996em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">&#x2265;</span><span class="mord mathrm">0</span></span></span><span style="top:1.6632199999999997em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord displaystyle textstyle uncramped"><span class="mord displaystyle textstyle uncramped"></span><span class="mord mathit">d</span><span class="mord mathit">i</span><span class="mord mathit">a</span><span class="mord mathit" style="margin-right:0.03588em;">g</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathrm">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></span></span></p>
+<h1 id="data-preparation">Data preparation</h1>
+<h2 id="rating-binarization">Rating binarization</h2>
+<p>In this article, each user-movie matrix element is binarized to reduce training samples and consider only high rated movies whose rating is 4 or 5. So, every matrix element having a lower rating than 4 is not used for training.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SET</span> hivevar:<span class="hljs-keyword">seed</span>=<span class="hljs-number">31</span>;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> ratings2;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> ratings2 <span class="hljs-keyword">as</span>
+<span class="hljs-keyword">select</span>
+  <span class="hljs-keyword">rand</span>(${<span class="hljs-keyword">seed</span>}) <span class="hljs-keyword">as</span> rnd,
+  userid,
+  movieid <span class="hljs-keyword">as</span> itemid,
+  <span class="hljs-keyword">cast</span>(<span class="hljs-number">1.0</span> <span class="hljs-keyword">as</span> <span class="hljs-built_in">float</span>) <span class="hljs-keyword">as</span> rating <span class="hljs-comment">-- double is also accepted</span>
+<span class="hljs-keyword">from</span>
+  ratings
+<span class="hljs-keyword">where</span> rating &gt;= <span class="hljs-number">4.</span>
+;
+</code></pre>
+<p><code>rnd</code> field is appended for each record to split <code>ratings2</code> into training and testing data later.</p>
+<p>Binarization is an optional step, and you can use raw rating values to train a SLIM model.</p>
+<h2 id="splitting-dataset">Splitting dataset</h2>
+<p>To evaluate a recommendation model, this tutorial uses two type cross validations:</p>
+<ul>
+<li>Leave-one-out cross validation</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold cross validation</li>
+</ul>
+<p>The former is used in the <a href="http://glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf" target="_blank">SLIM&apos;s paper</a> and the latter is used in <a href="https://www.slideshare.net/MarkLevy/efficient-slides/" target="_blank">Mendeley&apos;s slide</a>.</p>
+<h3 id="leave-one-out-cross-validation">Leave-one-out cross validation</h3>
+<p>For leave-one-out cross validation, the dataset is split into a training set and a testing set by randomly selecting one of the non-zero entries of each user and placing it into the testing set.
+In the following query, the movie has the smallest <code>rnd</code> value is used as test data (<code>testing</code> table) per a user.
+And, the others are used as training data (<code>training</code> table).</p>
+<p>When we select slim&apos;s best hyperparameters, different test data is used in <a href="#evaluation">evaluation section</a> several times.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> testing;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> testing
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">WITH</span> top_k <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+     each_top_k(<span class="hljs-number">1</span>, userid, rnd, userid, itemid, rating)
+      <span class="hljs-keyword">as</span> (<span class="hljs-keyword">rank</span>, rnd, userid, itemid, rating)
+  <span class="hljs-keyword">from</span> (
+    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> ratings2
+    CLUSTER <span class="hljs-keyword">BY</span> userid
+  ) t
+)
+<span class="hljs-keyword">select</span>
+  userid, itemid, rating
+<span class="hljs-keyword">from</span>
+  top_k
+;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> training;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> training <span class="hljs-keyword">as</span>
+<span class="hljs-keyword">select</span>
+  l.*
+<span class="hljs-keyword">from</span>
+  ratings2 l
+  <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> testing r <span class="hljs-keyword">ON</span> (l.userid=r.userid <span class="hljs-keyword">and</span> l.itemid=r.itemid)
+<span class="hljs-keyword">where</span>
+  r.itemid <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span> <span class="hljs-comment">-- anti join</span>
+;
+</code></pre>
+<h3 id="kkk-hold-corss-validation"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold corss validation</h3>
+<p>When <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">K=2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span><span class="mrel">=</span><span class="mord mathrm">2</span></span></span></span>, the dataset is divided into training data and testing dataset.
+The numbers of training and testing samples roughly equal.</p>
+<p>When we select slim&apos;s best hyperparameters, you&apos;ll first train a SLIM prediction model from training data and evaluate the prediction model by testing data.</p>
+<p>Optionally, you can switch training data with testing data and evaluate again.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> testing;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> testing
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> ratings2
+<span class="hljs-keyword">where</span> rnd &gt;= <span class="hljs-number">0.5</span>
+;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> training;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> training
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> ratings2
+<span class="hljs-keyword">where</span> rnd &lt; <span class="hljs-number">0.5</span>
+;
+</code></pre>
+<div class="panel panel-primary"><div class="panel-heading"><h3 class="panel-title" id="note"><i class="fa fa-edit"></i> Note</h3></div><div class="panel-body"><p>In the following section excluding evaluation section,
+we will show the example of queries and its results based on <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold cross validation case.
+But, this article&apos;s queries are valid for leave-one-out cross validation.</p></div></div>
+<h2 id="pre-compute-item-item-similarity">Pre-compute item-item similarity</h2>
+<p>SLIM needs top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> most similar movies for each movie to the approximate user-item matrix.
+Here, we particularly focus on <a href="item_based_cf.html#dimsum-approximated-all-pairs-cosine-similarity-computation">DIMSUM</a>,
+an efficient and approximated similarity computation scheme.</p>
+<p>Because we set <code>k=20</code>, the output has 20 most-similar movies per <code>itemid</code>.
+We can adjust trade-off between training and prediction time and precision of matrix approximation by varying <code>k</code>.
+Larger <code>k</code> is the better approximation for raw user-item matrix, but training time and memory usage tend to increase.</p>
+<p><a href="item_based_cf.html#dimsum-approximated-all-pairs-cosine-similarity-computation.md">As we explained in the general introduction of item-based CF</a>,
+following query finds top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> nearest-neighborhood movies for each movie:</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">set</span> hivevar:k=<span class="hljs-number">20</span>;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> knn_train;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> knn_train
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">with</span> item_magnitude <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    to_map(j, mag) <span class="hljs-keyword">as</span> mags
+  <span class="hljs-keyword">from</span> (
+    <span class="hljs-keyword">select</span>
+      itemid <span class="hljs-keyword">as</span> j,
+      l2_norm(rating) <span class="hljs-keyword">as</span> mag
+    <span class="hljs-keyword">from</span>
+      training
+    <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+      itemid
+  ) t0
+),
+item_features <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    userid <span class="hljs-keyword">as</span> i,
+    collect_list(
+      feature(itemid, rating)
+    ) <span class="hljs-keyword">as</span> feature_vector
+  <span class="hljs-keyword">from</span>
+    training
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    userid
+),
+partial_result <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    dimsum_mapper(f.feature_vector, m.mags, <span class="hljs-string">&apos;-threshold 0.1 -int_feature&apos;</span>)
+      <span class="hljs-keyword">as</span> (itemid, other, s)
+  <span class="hljs-keyword">from</span>
+    item_features f
+    <span class="hljs-keyword">CROSS</span> <span class="hljs-keyword">JOIN</span> item_magnitude m
+),
+similarity <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    itemid,
+    other,
+    <span class="hljs-keyword">sum</span>(s) <span class="hljs-keyword">as</span> similarity
+  <span class="hljs-keyword">from</span>
+    partial_result
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    itemid, other
+),
+topk <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    each_top_k(
+      ${k}, itemid, similarity, <span class="hljs-comment">-- use top k items</span>
+      itemid, other
+    ) <span class="hljs-keyword">as</span> (<span class="hljs-keyword">rank</span>, similarity, itemid, other)
+  <span class="hljs-keyword">from</span> (
+    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> similarity
+    CLUSTER <span class="hljs-keyword">BY</span> itemid
+  ) t
+)
+<span class="hljs-keyword">select</span>
+  itemid, other, similarity
+<span class="hljs-keyword">from</span>
+  topk
+;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">itemid</th>
+<th style="text-align:center">other</th>
+<th style="text-align:left">similarity</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">3114</td>
+<td style="text-align:left">0.28432244</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1265</td>
+<td style="text-align:left">0.25180137</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2355</td>
+<td style="text-align:left">0.24781825</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2396</td>
+<td style="text-align:left">0.24435896</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">588</td>
+<td style="text-align:left">0.24359442</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center">...</td>
+<td style="text-align:left">...</td>
+</tr>
+</tbody>
+</table>
+<div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="caution"><i class="fa fa-exclamation-triangle"></i> Caution</h3></div><div class="panel-body"><p>To run the query above, you may need to run the following statements:</p><pre><code class="lang-sql"><span class="hljs-keyword">set</span> hive.<span class="hljs-keyword">strict</span>.checks.cartesian.product=<span class="hljs-literal">false</span>;
+<span class="hljs-keyword">set</span> hive.mapred.<span class="hljs-keyword">mode</span>=nonstrict;
+</code></pre></div></div>
+<h2 id="create-training-input-tables">Create training input tables</h2>
+<p>Here, we prepare input tables for SLIM training.</p>
+<p>SLIM input consists of the following columns in <code>slim_training_item</code>:</p>
+<ul>
+<li><code>i</code>: axis item id</li>
+<li><code>Ri</code>: the user-rating vector of the axis item <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> expressed as <code>map&lt;userid, rating&gt;</code>.</li>
+<li><code>knn_i</code>: top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> similar item matrix of item <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span>; the user-item rating matrix is expressed as <code>map&lt;userid, map&lt;itemid, rating&gt;&gt;</code>.</li>
+<li><code>j</code>: an item id in <code>knn_i</code>.</li>
+<li><code>Rj</code>: the user-rating vector of the item <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span> expressed as <code>map&lt;userid, rating&gt;</code>.</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> item_matrix;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">table</span> item_matrix <span class="hljs-keyword">as</span>
+<span class="hljs-keyword">select</span>
+  itemid <span class="hljs-keyword">as</span> i,
+  to_map(userid, rating) <span class="hljs-keyword">as</span> R_i
+<span class="hljs-keyword">from</span>
+  training
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+  itemid;
+
+<span class="hljs-comment">-- Temporary set off map join because the following query does not work well for map join</span>
+<span class="hljs-keyword">set</span> hive.<span class="hljs-keyword">auto</span>.<span class="hljs-keyword">convert</span>.<span class="hljs-keyword">join</span>=<span class="hljs-literal">false</span>;
+<span class="hljs-comment">-- set mapred.reduce.tasks=64;</span>
+
+<span class="hljs-comment">-- Create SLIM input features</span>
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> slim_training_item;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> slim_training_item <span class="hljs-keyword">as</span>
+<span class="hljs-keyword">WITH</span> knn_item_user_matrix <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    l.itemid,
+    r.userid,
+    to_map(l.other, r.rating) ratings
+  <span class="hljs-keyword">from</span>
+    knn_train l
+    <span class="hljs-keyword">JOIN</span> training r <span class="hljs-keyword">ON</span> (l.other = r.itemid)
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    l.itemid, r.userid
+),
+knn_item_matrix <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    itemid <span class="hljs-keyword">as</span> i,
+    to_map(userid, ratings) <span class="hljs-keyword">as</span> KNN_i <span class="hljs-comment">-- map&lt;userid, map&lt;itemid, rating&gt;&gt;</span>
+  <span class="hljs-keyword">from</span>
+    knn_item_user_matrix
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    itemid
+)
+<span class="hljs-keyword">select</span>
+  l.itemid <span class="hljs-keyword">as</span> i,
+  r1.R_i,
+  r2.knn_i,
+  l.other <span class="hljs-keyword">as</span> j,
+  r3.R_i <span class="hljs-keyword">as</span> R_j
+<span class="hljs-keyword">from</span>
+  knn_train l
+  <span class="hljs-keyword">JOIN</span> item_matrix r1 <span class="hljs-keyword">ON</span> (l.itemid = r1.i)
+  <span class="hljs-keyword">JOIN</span> knn_item_matrix r2 <span class="hljs-keyword">ON</span> (l.itemid = r2.i)
+  <span class="hljs-keyword">JOIN</span> item_matrix r3 <span class="hljs-keyword">ON</span> (l.other = r3.i)
+;
+
+<span class="hljs-comment">-- set to the default value</span>
+<span class="hljs-keyword">set</span> hive.<span class="hljs-keyword">auto</span>.<span class="hljs-keyword">convert</span>.<span class="hljs-keyword">join</span>=<span class="hljs-literal">true</span>;
+</code></pre>
+<h1 id="training">Training</h1>
+<h2 id="build-a-prediction-model-by-slim">Build a prediction model by SLIM</h2>
+<p><code>train_slim</code> function outputs the nonzero elements of an item-item matrix.
+For item recommendation or prediction, this matrix is stored into the table named <code>slim_model</code>.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> slim_model;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> slim_model <span class="hljs-keyword">as</span>
+<span class="hljs-keyword">select</span>
+  i, nn, <span class="hljs-keyword">avg</span>(w) <span class="hljs-keyword">as</span> w
+<span class="hljs-keyword">from</span> (
+  <span class="hljs-keyword">select</span>
+    train_slim(i, r_i, knn_i, j, r_j) <span class="hljs-keyword">as</span> (i, nn, w)
+  <span class="hljs-keyword">from</span> (
+    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> slim_training_item
+    CLUSTER <span class="hljs-keyword">BY</span> i
+  ) t1
+) t2
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> i, nn
+;
+</code></pre>
+<h2 id="usage-of-trainslim">Usage of <code>train_slim</code></h2>
+<p>You can obtain information about <code>train_slim</code> function and its arguments by giving <code>-help</code> option as follows:</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> train_slim(<span class="hljs-string">&quot;-help&quot;</span>);
+</code></pre>
+<pre><code class="lang-sql">usage: train_slim( int i, map&lt;int, double&gt; r_i, map&lt;int, map&lt;int, double&gt;&gt; topKRatesOfI,
+       int j, map&lt;int, double&gt; r_j [, constant string options])
+       - Returns row index, column index and non-zero weight value of prediction model
+       [-cv_rate &lt;arg&gt;] [-disable_cv] [-help] [-iters &lt;arg&gt;] [-l1 &lt;arg&gt;] [-l2 &lt;arg&gt;]
+ -cv_rate,--convergence_rate &lt;arg&gt;   Threshold to determine convergence
+                                     [default: 0.005]
+ -disable_cv,--disable_cvtest        Whether to disable convergence check
+                                     [default: enabled]
+ -help                               Show function help
+ -iters,--iterations &lt;arg&gt;           The number of iterations for
+                                     coordinate descent [default: 30]
+ -l1,--l1coefficient &lt;arg&gt;           Coefficient for l1 regularizer
+                                     [default: 0.001]
+ -l2,--l2coefficient &lt;arg&gt;           Coefficient for l2 regularizer
+                                     [default: 0.0005]
+</code></pre>
+<h1 id="prediction-and-recommendation">Prediction and recommendation</h1>
+<p>Here, we predict ratng values of binarized user-item rating matrix of testing dataset based on ratings in training dataset.</p>
+<p>Based on predicted rating scores, we can recommend top-k items for each user that he or she will be likely to put high scores.</p>
+<h2 id="predict-unknown-ratings-of-a-user-item-matrix">Predict unknown ratings of a user-item matrix</h2>
+<p>Based on known ratings and SLIM weight matrix, we predict unknown ratings in the user-item matrix.
+SLIM predicts ratings of user-item pairs based on top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> similar items.</p>
+<p>The <code>predict_pair</code> table represents candidates for recommended user-movie pairs, excluding known ratings in the training dataset.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">REPLACE</span> <span class="hljs-keyword">VIEW</span> predict_pair 
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">WITH</span> testing_users <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span> <span class="hljs-keyword">DISTINCT</span>(userid) <span class="hljs-keyword">as</span> userid <span class="hljs-keyword">from</span> testing
+),
+training_items <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span> <span class="hljs-keyword">DISTINCT</span>(itemid) <span class="hljs-keyword">as</span> itemid <span class="hljs-keyword">from</span> training
+),
+user_items <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    l.userid,
+    r.itemid
+  <span class="hljs-keyword">from</span>
+    testing_users l
+    <span class="hljs-keyword">CROSS</span> <span class="hljs-keyword">JOIN</span> training_items r
+)
+<span class="hljs-keyword">select</span>
+  l.userid,
+  l.itemid
+<span class="hljs-keyword">from</span>
+  user_items l
+  <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> training r <span class="hljs-keyword">ON</span> (l.userid=r.userid <span class="hljs-keyword">and</span> l.itemid=r.itemid)
+<span class="hljs-keyword">where</span>
+  r.itemid <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span> <span class="hljs-comment">-- anti join</span>
+;
+</code></pre>
+<pre><code class="lang-sql"><span class="hljs-comment">-- optionally set the mean/default value of prediction</span>
+<span class="hljs-keyword">set</span> hivevar:mu=<span class="hljs-number">0.0</span>;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> predicted;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> predicted 
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">WITH</span> knn_exploded <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    l.userid  <span class="hljs-keyword">as</span> u,
+    l.itemid <span class="hljs-keyword">as</span> i, <span class="hljs-comment">-- axis</span>
+    r1.other  <span class="hljs-keyword">as</span> k, <span class="hljs-comment">-- other</span>
+    r2.rating <span class="hljs-keyword">as</span> r_uk
+  <span class="hljs-keyword">from</span>
+    predict_pair l
+    <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> knn_train r1
+      <span class="hljs-keyword">ON</span> (r1.itemid = l.itemid)
+    <span class="hljs-keyword">JOIN</span> training r2
+      <span class="hljs-keyword">ON</span> (r2.userid = l.userid <span class="hljs-keyword">and</span> r2.itemid = r1.other)
+)
+<span class="hljs-keyword">select</span>
+  l.u <span class="hljs-keyword">as</span> userid,
+  l.i <span class="hljs-keyword">as</span> itemid,
+  <span class="hljs-keyword">coalesce</span>(<span class="hljs-keyword">sum</span>(l.r_uk * r.w), ${mu}) <span class="hljs-keyword">as</span> predicted
+  <span class="hljs-comment">-- coalesce(sum(l.r_uk * r.w)) as predicted</span>
+<span class="hljs-keyword">from</span>
+  knn_exploded l
+  <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">OUTER</span> <span class="hljs-keyword">JOIN</span> slim_model r <span class="hljs-keyword">ON</span> (l.i = r.i <span class="hljs-keyword">and</span> l.k = r.nn)
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+  l.u, l.i
+;
+</code></pre>
+<div class="panel panel-warning"><div class="panel-heading"><h3 class="panel-title" id="caution"><i class="fa fa-exclamation-triangle"></i> Caution</h3></div><div class="panel-body"><p>When <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> is small, slim predicted value may be <code>null</code>. Then, <code>$mu</code> replaces <code>null</code> value.
+The mean value of item ratings is a good choice for <code>$mu</code>.</p></div></div>
+<h2 id="top-kkk-item-recommendation-for-each-user">Top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> item recommendation for each user</h2>
+<p>Here, we recommend top-3 items for each user based on predicted values.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SET</span> hivevar:k=<span class="hljs-number">3</span>;
+
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> recommend;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> recommend
+<span class="hljs-keyword">as</span>
+<span class="hljs-keyword">WITH</span> top_n <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+     each_top_k(${k}, userid, predicted, userid, itemid)
+      <span class="hljs-keyword">as</span> (<span class="hljs-keyword">rank</span>, predicted, userid, itemid)
+  <span class="hljs-keyword">from</span> (
+    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> predicted
+    CLUSTER <span class="hljs-keyword">BY</span> userid
+  ) t
+)
+<span class="hljs-keyword">select</span>
+  userid,
+  collect_list(itemid) <span class="hljs-keyword">as</span> items
+<span class="hljs-keyword">from</span>
+  top_n
+<span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+  userid
+;
+
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> recommend <span class="hljs-keyword">limit</span> <span class="hljs-number">5</span>;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">userid</th>
+<th style="text-align:center">items</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">[364,594,2081]</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">[2028,3256,589]</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">[260,1291,2791]</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">[1196,1200,1210]</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">[3813,1366,89]</td>
+</tr>
+<tr>
+<td style="text-align:center">...</td>
+<td style="text-align:center">...</td>
+</tr>
+</tbody>
+</table>
+<h1 id="evaluation">Evaluation</h1>
+<h2 id="top-kkk-ranking-measures-hit-ratek-mrrk-and-precisionk">Top-<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span> ranking measures: Hit-Rate@K, MRR@K, and Precision@K</h2>
+<p>In this section, <code>Hit-Rate@k</code>, <code>MRR@k</code>, and <code>Precision@k</code> are computed based on recommended items.</p>
+<p><a href="../eval/rank.html#precision-at-k"><code>Precision@K</code></a> is a good evaluation measure for <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold cross validation.</p>
+<p>On the other hand, <code>Hit-Rate</code> and <a href="https://en.wikipedia.org/wiki/Mean_reciprocal_rank" target="_blank"><code>Mean Reciprocal Rank</code></a> (i.e., Average Reciprocal Hit-Rate) are good evaluation measures for leave-one-out cross validation.</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SET</span> hivevar:n=<span class="hljs-number">10</span>;
+
+WITH top_k as (
+  <span class="hljs-keyword">select</span>
+    each_top_k(${n}, userid, predicted, userid, itemid)
+      <span class="hljs-keyword">as</span> (<span class="hljs-keyword">rank</span>, predicted, userid, itemid)
+  <span class="hljs-keyword">from</span> (
+    <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> predicted
+    CLUSTER <span class="hljs-keyword">BY</span> userid
+  ) t
+),
+rec_items <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    userid,
+    collect_list(itemid) <span class="hljs-keyword">as</span> items
+  <span class="hljs-keyword">from</span>
+    top_k
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    userid
+),
+ground_truth <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    userid,
+    collect_list(itemid) <span class="hljs-keyword">as</span> truth
+  <span class="hljs-keyword">from</span>
+    testing
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    userid
+)
+<span class="hljs-keyword">select</span>
+  hitrate(l.items, r.truth) <span class="hljs-keyword">as</span> hitrate,
+  mrr(l.items, r.truth) <span class="hljs-keyword">as</span> mrr,
+  precision_at(l.items, r.truth) <span class="hljs-keyword">as</span> prec
+<span class="hljs-keyword">from</span>
+  rec_items l
+  <span class="hljs-keyword">join</span> ground_truth r <span class="hljs-keyword">on</span> (l.userid=r.userid)
+;
+</code></pre>
+<h3 id="leave-one-out-result">Leave-one-out result</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">hitrate</th>
+<th style="text-align:center">mrr</th>
+<th style="text-align:center">prec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.21517309922146763</td>
+<td style="text-align:center">0.09377752536606271</td>
+<td style="text-align:center">0.021517309922146725</td>
+</tr>
+</tbody>
+</table>
+<p>Hit Rate and MRR are similar to ones in <a href="http://glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf" target="_blank">the result of Table II in Slim&apos;s paper</a></p>
+<h3 id="kkk-hold-result"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold result</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">hitrate</th>
+<th style="text-align:center">mrr</th>
+<th style="text-align:center">prec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.8952775476387739</td>
+<td style="text-align:center">1.1751514972186057</td>
+<td style="text-align:center">0.3564871582435789</td>
+</tr>
+</tbody>
+</table>
+<p>Precision value is similar to <a href="https://www.slideshare.net/MarkLevy/efficient-slides/13" target="_blank">the result of Mendeley&apos;s slide</a>.</p>
+<h2 id="ranking-measures-mrr">Ranking measures: MRR</h2>
+<p>In this example, whole recommended items are evaluated using MRR.</p>
+<pre><code class="lang-sql">WITH rec_items as (
+  <span class="hljs-keyword">select</span>
+    userid,
+    to_ordered_list(itemid, predicted, <span class="hljs-string">&apos;-reverse&apos;</span>) <span class="hljs-keyword">as</span> items
+  <span class="hljs-keyword">from</span>
+    predicted
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    userid
+),
+ground_truth <span class="hljs-keyword">as</span> (
+  <span class="hljs-keyword">select</span>
+    userid,
+    collect_list(itemid) <span class="hljs-keyword">as</span> truth
+  <span class="hljs-keyword">from</span>
+    testing
+  <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span>
+    userid
+)
+<span class="hljs-keyword">select</span>
+  mrr(l.items, r.truth) <span class="hljs-keyword">as</span> mrr
+<span class="hljs-keyword">from</span>
+  rec_items l
+  <span class="hljs-keyword">join</span> ground_truth r <span class="hljs-keyword">on</span> (l.userid=r.userid)
+;
+</code></pre>
+<h3 id="leave-one-out-result">Leave-one-out result</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">mrr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.10782647321821472</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kkk-hold-result"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>K</mi></mrow><annotation encoding="application/x-tex">K</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.07153em;">K</span></span></span></span>-hold result</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">mrr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.6179983058881773</td>
+</tr>
+</tbody>
+</table>
+<p>This MRR value is similar to one in <a href="https://www.slideshare.net/MarkLevy/efficient-slides/13" target="_blank">the Mendeley&apos;s slide</a>.</p>
+<p><div id="page-footer" class="localized-footer"><hr><!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<p><sub><font color="gray">
+Apache Hivemall is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored by the Apache Incubator.
+</font></sub></p>
+</div></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SLIM for fast top-k Recommendation","level":"9.3.5","depth":2,"next":{"title":"10-fold Cross Validation (Matrix Factorization)","level":"9.3.6","depth":2,"path":"recommend/movielens_cv.md","ref":"recommend/movielens_cv.md","articles":[]},"previous":{"title":"Factorization Machine","level":"9.3.4","depth":2,"path":"recommend/movielens_fm.md","ref":"recommend/movielens_fm.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-api","edit-link","github","splitter","etoc","callouts","toggle-chapters","anchorjs","codeblock-filename","expandable-chapters","multipart","codeblock-filename","katex","emphasize","localized-footer"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"emphasize":{},"callouts":{},"etoc":{"h2lb":3,"header":1,"maxdepth":3,"mindepth":1,"notoc":true},"github":{"url":"https://github.com/apache/incubator-hivemall/"},"splitter":{},"search":{},"downloadpdf":{"base":"https://github.com/apache/incubator-hivemall/docs/gitbook","label":"PDF","multilingual":false},"multipart":{},"localized-footer":{"filename":"FOOTER.md","hline":"true"},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2,"font":"sans"},"highlight":{},"codeblock-filename":{},"theme-api":{"languages":[],"split":false,"theme":"dark"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"label":"Edit","base":"https://github.com/apache/incubator-hivemall/tree/master/docs/gitbook"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchorjs":{"selector":"h1,h2,h3,*:not(.callout) > h4,h5"},"toggle-chapters":{},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Hivemall User Manual","links":{"sidebar":{"<i class=\"fa fa-home\"></i> Home":"https://hivemall.incubator.apache.org/"}},"gitbook":"3.x.x","description":"User Manual for Apache Hivemall"},"file":{"path":"recommend/movielens_slim.md","mtime":"2021-04-22T11:42:38.169Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-22T11:56:59.644Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-etoc/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-anchorjs/anchor-style.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-api/theme-api.js"></script>
+        
+    
+
+    </body>
+</html>
+
